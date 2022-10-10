@@ -9,7 +9,7 @@ variable "public_access" {
     default = false
 }
 
-variable "lyfecicle_enabled" {
+variable "lifecycle_enabled" {
     description = "Should use lifecycle"
     type = bool
     default = false
