@@ -4,19 +4,19 @@ resource "aws_s3_bucket" "new_bucket" {
 
 resource "aws_s3_bucket_lifecycle_configuration" "new_bucket_lifecycle" {
   bucket = aws_s3_bucket.new_bucket.id
-  
+
   rule {
-    status = var.lifecycle ? "ENABLED" : "DISABLED"
+    status = var.lifecycle_enabled ? "ENABLED" : "DISABLED"
 
     filter {
       prefix = "expireds/"
     }
     transition {
-      days = var.days
+      days          = var.days
       storage_class = "DEEP_ARCHIVE"
     }
   }
-  
+
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
