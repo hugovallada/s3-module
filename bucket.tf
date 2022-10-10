@@ -6,7 +6,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "new_bucket_lifecycle" {
   bucket = aws_s3_bucket.new_bucket.id
 
   rule {
-    status = var.lifecycle_enabled ? "ENABLED" : "DISABLED"
+    status = var.lifecycle_enabled ? "Enabled" : "Disabled"
     id     = "expireds/"
 
     filter {
