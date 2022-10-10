@@ -14,6 +14,8 @@ resource "aws_s3_bucket" "new_bucket" {
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
+  bucket = aws_s3_bucket.new_bucket.id
+
   block_public_acls       = var.public_access
   ignore_public_acls      = var.public_access
   block_public_policy     = var.public_access
